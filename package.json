@@ -1,6 +1,6 @@
 {
   "name": "jslinsocket",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A clone of socket.io that has a client for it in golang",
   "dependencies": {
     "express": "^4.18.2",

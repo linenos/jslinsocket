@@ -18,7 +18,6 @@ const Linsocket = {
             // Socket Variables
             const events = {}
             const sockets = {}
-            var globalThis = this
             this.socket = wsserver
     
             // Socket Functions
@@ -45,7 +44,7 @@ const Linsocket = {
             }
     
             wsserver.app.get((configuration.path + "/linsocket.io").split("//").join("/"), (req, res) => {
-                return res.end(globalThis.version)
+                return res.end(Linsocket.version)
             })
             wsserver.app.ws(configuration.path, (clientsocket, req) => {
                 // Pre-events handler
