@@ -83,7 +83,11 @@ const Linsocket = {
                     }
     
                     // Initialized
-                    events["connect"](customCS)    
+                    try {
+                        events["connect"](customCS)
+                    } catch(err) {
+                        console.log("JSLinsocket - 'Connect' Handler Function Has Error:\n", err)
+                    }
                 }
     
                 // Message Handler
