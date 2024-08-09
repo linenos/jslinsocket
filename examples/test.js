@@ -8,6 +8,7 @@ const server = new Linsocket.Server(route, { path: "/customws" });
 server.on("connect", function(ws) {
     /*
     ws -> {
+        disconnect: function(...arguments),
         emit: function(event: string, ...arguments),
         on: function(event: string, callback: function)
         headers: object {
@@ -26,6 +27,7 @@ server.on("connect", function(ws) {
 
     // Check out the golang client: 
     ws.emit("hello", "buirehbgjieruhbgne", "haha", "brrr", "inf arguments", "do NOT send functions in the argument")
+    ws.disconnect(); // disconnnect the websocket
 })
 
 route.listen(4000, () => {

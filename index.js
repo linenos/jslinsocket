@@ -1,3 +1,4 @@
+// Fixed disconnect function for Bun/Node.js
 const fs = require("node:fs")
 const path = require("node:path")
 const express = require("express")
@@ -48,8 +49,8 @@ const Linsocket = {
             })
             wsserver.app.ws(configuration.path, (clientsocket, req) => {
                 // Pre-events handler
-                const clientEvents = {}
-                clientsocket.disconnect = clientsocket.close
+                const clientEvents = {};
+                clientsocket.disconnect = (...args) => clientsocket.close(...args);
                 
                 // Connection + Message Handler
                 if (events["connect"]) {
@@ -134,7 +135,6 @@ if (fs.existsSync(packageJson)) {
             version: "package broken"
         }
     }
-
     Linsocket.version = json.version || "package broken"
 }
 
